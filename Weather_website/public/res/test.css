@@ -1,0 +1,86 @@
+.nav1{
+    background-color: wheat;
+}
+.navitem{
+    font-size:larger;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.webname{
+    font-size: xx-large;
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    padding-left: 1rem;
+}
+.tagselect{
+    background-color: white;
+    border-radius: 0.2cm;
+    color: rgb(58, 38, 75) !important;
+    font-weight:200;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+body{
+    background-color: #c9c3ea;
+}
+#indexintro{ 
+    margin-left: 16cm; 
+    margin-top: 5cm;
+    font-size: x-large;
+}
+.butt1{
+    margin-top: 0.5cm;
+    margin-left: 2cm;
+}
+.butt2{
+    display: inline-block;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #212529;
+    text-align: center;
+    text-decoration: none;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: transparent;
+    border: 1px solid transparent;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.25rem;
+    background-color: black;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+.inpbox{
+    margin-top: 2cm;
+}
+#in1{
+    margin-left: 10cm;
+}
+.ghansh{
+    background-color: rgb(0, 0, 0);
+    margin-right: 14cm;
+    margin-left: 13cm;
+    color: #fff;
+}
+#day{
+    font-size: 0.85cm;
+    font-family: 'Lobster', cursive;
+    margin-left: 10px;
+}
+#today_date{
+    font-size: large;
+    margin-left: 6.5cm;
+    font-family: 'Lobster', cursive;
+}
+#city_name{
+    font-family: 'Lobster', cursive;
+    font-size: 0.7cm;
+    margin-left: 10px;
+}
+.middle_layer{
+    margin-left: 100px;
+    font-size: 2cm;
+    font-family: 'Permanent Marker', cursive;
+}
+#today_date{
+    display:inline-block;
+}
