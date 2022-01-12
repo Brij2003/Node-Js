@@ -1,0 +1,14 @@
+{
+  "name": "mongo-db",
+  "version": "1.0.0",
+  "description": "This is mongo Db practice using Mongoose  ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Brij Vaghani",
+  "license": "ISC",
+  "dependencies": {
+    "mongoose": "^6.1.6"
+  }
+}
