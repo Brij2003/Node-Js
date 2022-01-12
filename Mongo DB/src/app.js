@@ -46,7 +46,6 @@ const createnewDocument = async () => {
 // createnewDocument();
 
 // Reading documents in Database
-
 const getDocument = async () => {
     try {
         const result = await Member
@@ -60,4 +59,46 @@ const getDocument = async () => {
 }
 // getDocument();
 
-// Comparision
+// Comparision operator
+const compareDocument = async () => {
+    try {
+        const result = await Member
+            // .find({ age: {$gt:18} })
+            .find({ course: {$in:["ECE","DSAI"]} })
+            .select({ name: 1 });
+        console.log(result);
+    } catch (err) {
+        console.log(err)
+    }
+}
+// compareDocument();
+
+// Logical operator
+const logicalDocument = async () => {
+    try {
+        const result = await Member
+            .find({ $and : [{course : "CSE"}, {age : 19}] })
+            .select({ name: 1 })
+            .count();
+        console.log(result);
+    } catch (err) {
+        console.log(err)
+    }
+}
+// logicalDocument();
+
+// Sorting and counting
+const sortDocument = async () => {
+    try {
+        const result = await Member
+            .find({ $or: [{ course: "CSE" }, { profesion: "Student" }] })
+            .select({ name: 1 })
+            .sort({name:1});
+            // .count();
+        console.log(result);
+    } catch (err) {
+        console.log(err)
+    }
+}
+// sortDocument();
+
