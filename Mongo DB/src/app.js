@@ -102,3 +102,28 @@ const sortDocument = async () => {
 }
 // sortDocument();
 
+// Updating the documents
+const updateDocument = async (_id) => {
+    try {
+        const result = await Member.updateOne({ _id }, {
+            $set: {
+                profesion: "Teacher"
+            }
+        });
+        console.log(result);
+    } catch (err) {
+        console.log(err)
+    }
+}
+// updateDocument("61df1074ee1a33923405e366");
+
+// Deleting the document
+const deleteDocument = async (_id) => {
+    try {
+        const result = await Member.deleteOne({ _id });
+        console.log(result);
+    } catch (err) {
+        console.log(err)
+    }
+}
+deleteDocument("61df159d166fe7618087781f");
