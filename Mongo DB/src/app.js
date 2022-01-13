@@ -1,6 +1,8 @@
 const mongoose = require('mongoose');
 const { getMaxListeners } = require('process');
 const { stringify } = require('querystring');
+const S = require('string');
+const validator = require("validator");
 
 // creating a new connection with any Database
 mongoose.connect("mongodb://localhost:27017/Demo1").then(async () => await console.log("connection succesfully established.....")).catch(async (err) => await console.log(err));
@@ -9,12 +11,44 @@ mongoose.connect("mongodb://localhost:27017/Demo1").then(async () => await conso
 const teamInfo = new mongoose.Schema({
     name: {
         type: String,
+        minlength: 3,
+        maxlength: 300,
+        trim: true,
         required: true
     },
-    profesion: String,
-    age: Number,
-    mail_id: String,
-    course: String
+    profesion: {
+        type: String,
+        lowercase: true,
+        required: true,
+        enum: ["student", "teacher", "web devloper", "software devloper"]
+    },
+    age: {
+        type: Number,
+        validate(value) {
+            if (value < 7) {
+                throw new Error("The devloper is underage")
+            }
+        }
+    },
+    mail_id: {
+        type: String,
+        required: true,
+        unique:true,
+        validate(value) {
+            if (!S(value).contains(".com")) {
+                throw new Error("Entered E-mail is not valid\n Please enter a valid E-mail address")
+            } 
+            else if (!validator.isEmail(value)) {
+                throw new Error("Please enter a valid E-mail address")
+            }
+        }
+    },
+    course: {
+        type: String,
+        uppercase: true,
+        required: true,
+        enum:["CSE","IT","DSAI","ECE"]
+    }
 });
 
 // Creating a new model of our teamInfo schema 
@@ -27,23 +61,15 @@ const createnewDocument = async () => {
             name: "Vijay",
             profesion: "Student",
             age: 20,
-            mail_id: "pqr@gmail.com",
+            mail_id: "rbssrbjgknsibi.com",
             course: "DSAI"
         })
-        const backendTeam = new Member({
-            name: "Harsh",
-            profesion: "Student",
-            age: 19,
-            mail_id: "har@gmail.com",
-            course: "CSE"
-        })
-        const result = await Member.insertMany([frontendTeam,backendTeam]);
+        const result = await Member.insertMany([frontendTeam]);
         console.log(result);
     } catch (err)
     { console.log(err) }
 }
-
-// createnewDocument();
+createnewDocument();
 
 // Reading documents in Database
 const getDocument = async () => {
@@ -126,4 +152,5 @@ const deleteDocument = async (_id) => {
         console.log(err)
     }
 }
-deleteDocument("61df159d166fe7618087781f");
+// deleteDocument("61e073a53ed88fcca2d18f45");
+
